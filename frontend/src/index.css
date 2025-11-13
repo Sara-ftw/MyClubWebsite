@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* ETC Brand Colors */
+    --background: 0 0% 100%;
+    --foreground: 212 100% 14%; /* #011E4A - Dark Blue */
+
+    --card: 0 0% 100%;
+    --card-foreground: 212 100% 14%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 212 100% 14%;
+
+    --primary: 212 100% 14%; /* #011E4A - Dark Blue */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 33 99% 50%; /* #FC9601 - Orange */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 194 80% 43%; /* #16A2C5 - Aqua Blue */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 33 99% 50%;
+
+    --radius: 0.75rem;
+
+    /* Additional ETC Colors */
+    --royal-blue: 203 59% 37%; /* #2B6B99 */
+    --green: 77 71% 52%; /* #8FCF3C */
+    --yellow: 54 100% 56%; /* #FFE11A */
+    --grey: 60 1% 62%; /* #9D9D9B */
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 212 100% 14%;
+    --foreground: 0 0% 100%;
+
+    --card: 212 95% 18%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 212 95% 18%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 33 99% 50%;
+    --primary-foreground: 212 100% 14%;
+
+    --secondary: 194 80% 43%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 212 95% 18%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 33 99% 50%;
+    --accent-foreground: 212 100% 14%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 212 95% 22%;
+    --input: 212 95% 22%;
+    --ring: 33 99% 50%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-roboto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat font-bold;
+  }
+}
+
+/* Custom animations and utilities */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-secondary via-accent to-primary bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-scroll-carousel {
+  animation: scroll-carousel 30s linear infinite;
+}
