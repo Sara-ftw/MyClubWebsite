@@ -1,4 +1,5 @@
 import { Users, Briefcase, Award, Lightbulb } from "lucide-react";
+import LazyRender from "./LazyRenderer";
 
 export const StatsSection = () => {
   const stats = [
@@ -31,6 +32,7 @@ export const StatsSection = () => {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
+        <LazyRender>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
             <div
@@ -50,6 +52,7 @@ export const StatsSection = () => {
             </div>
           ))}
         </div>
+        </LazyRender>
       </div>
     </section>
   );

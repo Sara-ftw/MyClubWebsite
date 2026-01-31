@@ -10,11 +10,12 @@ import Autoplay from "embla-carousel-autoplay";
 export const ExpositionGallery = () => {
   const images = [
     "/images/exposition1.jpg",
-    "/images/exposition2.jpg",
-    "/images/exposition3.JPG",
+    "/images/exposition2.JPG",
+    "/images/exposition3.jpg",
     "/images/exposition4.JPG",
     "/images/exposition5.JPG",
     "/images/exposition6.jpg",
+    "/images/exposition7.jpg",
   ].filter(img => img); // Remove empty entries if some images don't exist yet
 
   if (images.length === 0) return null;

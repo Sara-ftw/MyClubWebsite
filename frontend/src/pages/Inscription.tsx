@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { api, type RegistrationType } from "@/utils/api";
 import { Building2, GraduationCap, Rocket } from "lucide-react";
 import { z } from "zod";
+import { useEffect } from "react";
 
 const registrationSchema = z.object({
   name: z.string().trim().min(2, "Le nom doit contenir au moins 2 caractères").max(100),
@@ -19,6 +20,7 @@ const registrationSchema = z.object({
 });
 
 const Inscription = () => {
+  useEffect(() => {  window.scrollTo(0, 0); },[]);
   const [step, setStep] = useState<"type" | "form">("type");
   const [registrationType, setRegistrationType] = useState<RegistrationType | null>(null);
   const [formData, setFormData] = useState({
